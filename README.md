@@ -39,3 +39,11 @@ public class CustomIdGenerator extends SequenceStyleGenerator {
 	    }
 
 }
+
+
+@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+	@GenericGenerator(name = "user_seq", strategy = "com.jsp.swasthik.util.CustomIdGenerator", parameters = {
+			@Parameter(name = CustomIdGenerator.INCREMENT_PARAM, value = "1"),
+			@Parameter(name = CustomIdGenerator.VALUE_PREFIX_PARAMETER, value = "User_"),
+			@Parameter(name = CustomIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
